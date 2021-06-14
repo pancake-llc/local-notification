@@ -140,6 +140,88 @@ namespace Lance.Common.LocalNotification
             }
         }
 
+        /// <summary>
+        /// using for custom of not auto schedule notification
+        /// </summary>
+        /// <param name="id">id of chanel</param>
+        /// <param name="customTimeSchedule"></param>
+        public void UpdateDeliveryTimeById(string id, int customTimeSchedule = -1)
+        {
+            int index = -1;
+
+            for (int i = 0; i < structures.Length; i++)
+            {
+                if (structures[i].chanel.Equals(id))
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == -1)
+            {
+                Debug.LogWarning($"id: {id} not exist! please check again!");
+                return;
+            }
+
+            UpdateDeliveryTimeByIndex(index, customTimeSchedule);
+        }
+
+        /// <summary>
+        /// using for custom of not auto schedule notification
+        /// </summary>
+        /// <param name="index">index of id chanel</param>
+        /// <param name="customTimeSchedule"></param>
+        public void UpdateDeliveryTimeByIndex(int index, int customTimeSchedule = -1)
+        {
+            var currentNow = DateTime.Now.ToLocalTime();
+            var structureData = structures[index];
+
+            if (structureData.autoSchedule) return;
+
+            var data = structureData.datas.PickRandom();
+
+            if (structureData.type == TypeNoti.OnceTime)
+            {
+                var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
+                _dateTimes[index] = new DateTime(deliveryTime.Year,
+                    deliveryTime.Month,
+                    deliveryTime.Day,
+                    deliveryTime.Hour,
+                    deliveryTime.Minute,
+                    deliveryTime.Second,
+                    DateTimeKind.Local);
+                SendNotification(data.title,
+                    data.message,
+                    _dateTimes[index],
+                    channelId: _channels[index].Id,
+                    smallIcon: "icon_0",
+                    largeIcon: "icon_1");
+            }
+            else
+            {
+                var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
+                _dateTimes[index] = new DateTime(deliveryTime.Year,
+                    deliveryTime.Month,
+                    deliveryTime.Day,
+                    deliveryTime.Hour,
+                    deliveryTime.Minute,
+                    deliveryTime.Second,
+                    DateTimeKind.Local);
+                _timeSpans[index] = new TimeSpan(0, 0, customTimeSchedule == -1 ? structureData.minute : customTimeSchedule, 0);
+                SendNotification(data.title,
+                    data.message,
+                    _dateTimes[index],
+                    channelId: _channels[index].Id,
+                    smallIcon: "icon_0",
+                    largeIcon: "icon_1",
+                    timeRepeatAt: _timeSpans[index]);
+            }
+
+            string id = structures[index].chanel;
+            UpdateDeliveryTimeById(id, customTimeSchedule);
+        }
+
         private void OnEnable()
         {
             if (Manager != null)
@@ -201,7 +283,6 @@ namespace Lance.Common.LocalNotification
             }
 
 #elif UNITY_IOS
-
             if (timeRepeatAt != null)
             {
                 if (notification is iOSGameNotification notificationIOS)
