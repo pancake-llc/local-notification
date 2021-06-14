@@ -201,17 +201,25 @@ namespace Lance.Common.LocalNotification
             }
 
 #elif UNITY_IOS
-            if (notification is iOSGameNotification notiIOS)
+
+            if (timeRepeatAt != null)
             {
-                if (notiIOS.InternalNotification.Trigger is iOSNotificationTimeIntervalTrigger triggerTime)
+                if (notification is iOSGameNotification notificationIOS)
                 {
-                    triggerTime.Repeats = timeRepeatAt != null;
-                }
-                else if (notiIOS.InternalNotification.Trigger is iOSNotificationCalendarTrigger triggerCalender)
-                {
-                    triggerCalender.Repeats = timeRepeatAt != null;
+                    if (notificationIOS.InternalNotification.Trigger is iOSNotificationTimeIntervalTrigger timeIntervalTrigger)
+                    {
+                        timeIntervalTrigger.Repeats = true;
+                        notificationIOS.InternalNotification.Trigger = timeIntervalTrigger;
+                    }
+                    else if (notificationIOS.InternalNotification.Trigger is iOSNotificationCalendarTrigger calendarTrigger)
+                    {
+                        calendarTrigger.Repeats = true;
+                        notificationIOS.InternalNotification.Trigger = calendarTrigger;
+                    }
                 }
             }
+
+
 #endif
             notification.DeliveryTime = deliveryTime;
             notification.SmallIcon = smallIcon;
