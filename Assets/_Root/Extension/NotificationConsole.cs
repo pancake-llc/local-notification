@@ -217,9 +217,6 @@ namespace Lance.Common.LocalNotification
                     largeIcon: "icon_1",
                     timeRepeatAt: _timeSpans[index]);
             }
-
-            string id = structures[index].chanel;
-            UpdateDeliveryTimeById(id, customTimeSchedule);
         }
 
         private void OnEnable()
