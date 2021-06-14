@@ -216,6 +216,10 @@ namespace Lance.Common.LocalNotification
                         calendarTrigger.Repeats = true;
                         ((iOSGameNotification) notification).InternalNotification.Trigger = calendarTrigger;
                     }
+                    else
+                    {
+                        Debug.Log("other");
+                    }
                 }
                 
                 Debug.Log("trigger :" + ((iOSGameNotification) notification).InternalNotification.Trigger);
