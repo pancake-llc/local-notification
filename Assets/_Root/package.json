@@ -1,0 +1,16 @@
+{
+  "name": "com.lance.local-notification",
+  "displayName": "Notification",
+  "description": "Notification implement Unity Notification",
+  "version": "2021.5.25",
+  "unity": "2020.1",
+  "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/phongsoyenmoc)",
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.mobile.notifications": "1.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phongsoyenmoc/local-notification"
+  }
+}
