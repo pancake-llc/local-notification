@@ -145,7 +145,7 @@ namespace Lance.Common.LocalNotification
         /// </summary>
         /// <param name="id">id of chanel</param>
         /// <param name="customTimeSchedule"></param>
-        public void UpdateDeliveryTimeById(string id, int customTimeSchedule = -1)
+        public void UpdateDeliveryTimeBy(string id, int customTimeSchedule = -1)
         {
             int index = -1;
 
@@ -164,7 +164,7 @@ namespace Lance.Common.LocalNotification
                 return;
             }
 
-            UpdateDeliveryTimeByIndex(index, customTimeSchedule);
+            UpdateDeliveryTimeBy(index, customTimeSchedule);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Lance.Common.LocalNotification
         /// </summary>
         /// <param name="index">index of id chanel</param>
         /// <param name="customTimeSchedule"></param>
-        public void UpdateDeliveryTimeByIndex(int index, int customTimeSchedule = -1)
+        public void UpdateDeliveryTimeBy(int index, int customTimeSchedule = -1)
         {
             var currentNow = DateTime.Now.ToLocalTime();
             var structureData = structures[index];
