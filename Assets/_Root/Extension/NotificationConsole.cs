@@ -209,14 +209,16 @@ namespace Lance.Common.LocalNotification
                     if (notificationIOS.InternalNotification.Trigger is iOSNotificationTimeIntervalTrigger timeIntervalTrigger)
                     {
                         timeIntervalTrigger.Repeats = true;
-                        notificationIOS.InternalNotification.Trigger = timeIntervalTrigger;
+                        ((iOSGameNotification) notification).InternalNotification.Trigger = timeIntervalTrigger;
                     }
                     else if (notificationIOS.InternalNotification.Trigger is iOSNotificationCalendarTrigger calendarTrigger)
                     {
                         calendarTrigger.Repeats = true;
-                        notificationIOS.InternalNotification.Trigger = calendarTrigger;
+                        ((iOSGameNotification) notification).InternalNotification.Trigger = calendarTrigger;
                     }
                 }
+                
+                Debug.Log("trigger :" + ((iOSGameNotification) notification).InternalNotification.Trigger);
             }
 
 
