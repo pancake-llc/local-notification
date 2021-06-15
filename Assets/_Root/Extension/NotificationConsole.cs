@@ -284,7 +284,11 @@ namespace Lance.Common.LocalNotification
             {
                 if (notification is iOSGameNotification notificationIOS)
                 {
+                    Debug.Log("Here");
                     notificationIOS.InternalNotification.Trigger = new iOSNotificationTimeIntervalTrigger {Repeats = true, TimeInterval = timeRepeatAt.Value,};
+
+                    var trigger = (iOSNotificationTimeIntervalTrigger) notificationIOS.InternalNotification.Trigger;
+                    Debug.Log(trigger.Repeats);
                 }
             }
 #endif
