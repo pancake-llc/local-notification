@@ -95,7 +95,8 @@ namespace Lance.Common.LocalNotification.iOS
             {
                 if (!(internalNotification.Trigger is iOSNotificationCalendarTrigger calendarTrigger))
                 {
-                    return null;
+                    // avoid when serialize
+                    return DateTime.Now;
                 }
 
                 DateTime now = DateTime.Now;
