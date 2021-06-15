@@ -78,6 +78,8 @@ namespace Lance.Common.LocalNotification.iOS
         /// <inheritdoc />
         public bool Scheduled { get; private set; }
 
+        public bool TimeIntervalTriggerFlag { get; set; } = false;
+
         /// <inheritdoc />
         /// <remarks>
         /// <para>On iOS, setting this causes the notification to be delivered on a calendar time.</para>
@@ -112,7 +114,7 @@ namespace Lance.Common.LocalNotification.iOS
             }
             set
             {
-                if (!value.HasValue)
+                if (!value.HasValue || TimeIntervalTriggerFlag)
                 {
                     return;
                 }

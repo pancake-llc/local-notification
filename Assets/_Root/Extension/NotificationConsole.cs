@@ -284,14 +284,14 @@ namespace Lance.Common.LocalNotification
             {
                 if (notification is iOSGameNotification notificationIOS)
                 {
+                    notificationIOS.TimeIntervalTriggerFlag = true;
                     notificationIOS.InternalNotification.Trigger = new iOSNotificationTimeIntervalTrigger {Repeats = true, TimeInterval = timeRepeatAt.Value,};
                 }
             }
 #endif
             
-#if UNITY_ANDROID
             notification.DeliveryTime = deliveryTime;
-#endif
+            notification.DeliveryTime = deliveryTime;
             notification.SmallIcon = smallIcon;
             notification.LargeIcon = largeIcon;
 
