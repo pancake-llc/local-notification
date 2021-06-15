@@ -289,8 +289,6 @@ namespace Lance.Common.LocalNotification
                 }
             }
 #endif
-            
-            notification.DeliveryTime = deliveryTime;
             notification.DeliveryTime = deliveryTime;
             notification.SmallIcon = smallIcon;
             notification.LargeIcon = largeIcon;
