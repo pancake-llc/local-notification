@@ -54,18 +54,14 @@ namespace Lance.Common.LocalNotification
 
         [SerializeField] private NotificationStuctureData[] structures =
         {
-            new NotificationStuctureData() {type = TypeNoti.Repeat, chanel = "channel_repeat", minute = 1440, autoSchedule = true},
-            new NotificationStuctureData() {type = TypeNoti.OnceTime, chanel = "channel_event", minute = 120, autoSchedule = false},
-            new NotificationStuctureData() {type = TypeNoti.OnceTime, chanel = "channel_noti", minute = 120, autoSchedule = false},
+            new NotificationStuctureData() { type = TypeNoti.Repeat, chanel = "channel_repeat", minute = 1440, autoSchedule = true },
+            new NotificationStuctureData() { type = TypeNoti.OnceTime, chanel = "channel_event", minute = 120, autoSchedule = false },
+            new NotificationStuctureData() { type = TypeNoti.OnceTime, chanel = "channel_noti", minute = 120, autoSchedule = false },
         };
 
         public UnityEvent onUpdateDeliveryTime;
         public GameNotificationsManager Manager => _manager != null ? _manager : _manager = GetComponent<GameNotificationsManager>();
 
-        // Update pending notifications in the next update.
-        //private bool _updatePendingNotifications;
-        private DateTime[] _dateTimes;
-        private TimeSpan[] _timeSpans;
         private GameNotificationChannel[] _channels;
         private GameNotificationsManager _manager;
 
@@ -75,8 +71,6 @@ namespace Lance.Common.LocalNotification
             // You need to have at least one of these
 
             _channels = new GameNotificationChannel[structures.Length];
-            _dateTimes = new DateTime[structures.Length];
-            _timeSpans = new TimeSpan[structures.Length];
             for (int i = 0; i < structures.Length; i++)
             {
                 var chanelCache = structures[i];
@@ -104,7 +98,7 @@ namespace Lance.Common.LocalNotification
                 if (chanelCache.type == TypeNoti.OnceTime)
                 {
                     var deliveryTime = currentNow.AddMinutes(chanelCache.minute);
-                    _dateTimes[i] = new DateTime(deliveryTime.Year,
+                    var resultTime = new DateTime(deliveryTime.Year,
                         deliveryTime.Month,
                         deliveryTime.Day,
                         deliveryTime.Hour,
@@ -113,7 +107,7 @@ namespace Lance.Common.LocalNotification
                         DateTimeKind.Local);
                     SendNotification(data.title,
                         data.message,
-                        _dateTimes[i],
+                        resultTime,
                         channelId: _channels[i].Id,
                         smallIcon: "icon_0",
                         largeIcon: "icon_1");
@@ -121,21 +115,21 @@ namespace Lance.Common.LocalNotification
                 else
                 {
                     var deliveryTime = currentNow.AddMinutes(chanelCache.minute);
-                    _dateTimes[i] = new DateTime(deliveryTime.Year,
+                    var resultTime = new DateTime(deliveryTime.Year,
                         deliveryTime.Month,
                         deliveryTime.Day,
                         deliveryTime.Hour,
                         deliveryTime.Minute,
                         deliveryTime.Second,
                         DateTimeKind.Local);
-                    _timeSpans[i] = new TimeSpan(0, 0, chanelCache.minute, 0);
+                    var timeSpanResult = new TimeSpan(0, 0, chanelCache.minute, 0);
                     SendNotification(data.title,
                         data.message,
-                        _dateTimes[i],
+                        resultTime,
                         channelId: _channels[i].Id,
                         smallIcon: "icon_0",
                         largeIcon: "icon_1",
-                        timeRepeatAt: _timeSpans[i]);
+                        timeRepeatAt: timeSpanResult);
                 }
             }
         }
@@ -184,7 +178,7 @@ namespace Lance.Common.LocalNotification
             if (structureData.type == TypeNoti.OnceTime)
             {
                 var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
-                _dateTimes[index] = new DateTime(deliveryTime.Year,
+                var resultTime = new DateTime(deliveryTime.Year,
                     deliveryTime.Month,
                     deliveryTime.Day,
                     deliveryTime.Hour,
@@ -193,7 +187,7 @@ namespace Lance.Common.LocalNotification
                     DateTimeKind.Local);
                 SendNotification(data.title,
                     data.message,
-                    _dateTimes[index],
+                    resultTime,
                     channelId: _channels[index].Id,
                     smallIcon: "icon_0",
                     largeIcon: "icon_1");
@@ -201,22 +195,103 @@ namespace Lance.Common.LocalNotification
             else
             {
                 var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
-                _dateTimes[index] = new DateTime(deliveryTime.Year,
+                var resultTime = new DateTime(deliveryTime.Year,
                     deliveryTime.Month,
                     deliveryTime.Day,
                     deliveryTime.Hour,
                     deliveryTime.Minute,
                     deliveryTime.Second,
                     DateTimeKind.Local);
-                _timeSpans[index] = new TimeSpan(0, 0, customTimeSchedule == -1 ? structureData.minute : customTimeSchedule, 0);
+                var timeSpanResult = new TimeSpan(0, 0, customTimeSchedule == -1 ? structureData.minute : customTimeSchedule, 0);
                 SendNotification(data.title,
                     data.message,
-                    _dateTimes[index],
+                    resultTime,
                     channelId: _channels[index].Id,
                     smallIcon: "icon_0",
                     largeIcon: "icon_1",
-                    timeRepeatAt: _timeSpans[index]);
+                    timeRepeatAt: timeSpanResult);
             }
+        }
+
+        /// <summary>
+        /// using for custom of not auto schedule notification
+        /// </summary>
+        /// <param name="index">index of id chanel</param>
+        /// <param name="message"></param>
+        /// <param name="customTimeSchedule"></param>
+        /// <param name="title"></param>
+        public void UpdateDeliveryTimeBy(int index, string title, string message, int customTimeSchedule = -1)
+        {
+            var currentNow = DateTime.Now.ToLocalTime();
+            var structureData = structures[index];
+
+            if (structureData.autoSchedule) return;
+
+            if (structureData.type == TypeNoti.OnceTime)
+            {
+                var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
+                var resultTime = new DateTime(deliveryTime.Year,
+                    deliveryTime.Month,
+                    deliveryTime.Day,
+                    deliveryTime.Hour,
+                    deliveryTime.Minute,
+                    deliveryTime.Second,
+                    DateTimeKind.Local);
+                SendNotification(title,
+                    message,
+                    resultTime,
+                    channelId: _channels[index].Id,
+                    smallIcon: "icon_0",
+                    largeIcon: "icon_1");
+            }
+            else
+            {
+                var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
+                var resultTime = new DateTime(deliveryTime.Year,
+                    deliveryTime.Month,
+                    deliveryTime.Day,
+                    deliveryTime.Hour,
+                    deliveryTime.Minute,
+                    deliveryTime.Second,
+                    DateTimeKind.Local);
+                var timeSpanResult = new TimeSpan(0, 0, customTimeSchedule == -1 ? structureData.minute : customTimeSchedule, 0);
+                SendNotification(title,
+                    message,
+                    resultTime,
+                    channelId: _channels[index].Id,
+                    smallIcon: "icon_0",
+                    largeIcon: "icon_1",
+                    timeRepeatAt: timeSpanResult);
+            }
+        }
+
+        /// <summary>
+        /// using for custom of not auto schedule notification
+        /// </summary>
+        /// <param name="id">id of chanel</param>
+        /// <param name="message"></param>
+        /// <param name="customTimeSchedule"></param>
+        /// <param name="title"></param>
+        public void UpdateDeliveryTimeBy(string id, string title, string message, int customTimeSchedule = -1)
+        {
+            int index = -1;
+
+            for (int i = 0; i < structures.Length; i++)
+            {
+                if (structures[i].chanel.Equals(id))
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == -1)
+            {
+                Debug.LogWarning($"id: {id} not exist! please check again!");
+                return;
+            }
+
+            UpdateDeliveryTimeBy(index, title, message, customTimeSchedule);
         }
 
         private void OnEnable()
