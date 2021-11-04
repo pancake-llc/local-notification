@@ -217,16 +217,14 @@ namespace Lance.Common.LocalNotification
         /// using for custom of not auto schedule notification
         /// </summary>
         /// <param name="index">index of id chanel</param>
-        /// <param name="message"></param>
+        /// <param name="indexData"></param>
         /// <param name="customTimeSchedule"></param>
-        /// <param name="title"></param>
-        public void UpdateDeliveryTimeBy(int index, string title, string message, int customTimeSchedule = -1)
+        public void UpdateDeliveryTimeByIncremental(int index, int indexData, int customTimeSchedule = -1)
         {
             var currentNow = DateTime.Now.ToLocalTime();
             var structureData = structures[index];
 
             if (structureData.autoSchedule) return;
-
             if (structureData.type == TypeNoti.OnceTime)
             {
                 var deliveryTime = currentNow.AddMinutes(customTimeSchedule == -1 ? structureData.minute : customTimeSchedule);
@@ -237,8 +235,8 @@ namespace Lance.Common.LocalNotification
                     deliveryTime.Minute,
                     deliveryTime.Second,
                     DateTimeKind.Local);
-                SendNotification(title,
-                    message,
+                SendNotification(structureData.datas[indexData].title,
+                    structureData.datas[indexData].message,
                     resultTime,
                     channelId: _channels[index].Id,
                     smallIcon: "icon_0",
@@ -255,8 +253,8 @@ namespace Lance.Common.LocalNotification
                     deliveryTime.Second,
                     DateTimeKind.Local);
                 var timeSpanResult = new TimeSpan(0, 0, customTimeSchedule == -1 ? structureData.minute : customTimeSchedule, 0);
-                SendNotification(title,
-                    message,
+                SendNotification(structureData.datas[indexData].title,
+                    structureData.datas[indexData].message,
                     resultTime,
                     channelId: _channels[index].Id,
                     smallIcon: "icon_0",
@@ -269,10 +267,9 @@ namespace Lance.Common.LocalNotification
         /// using for custom of not auto schedule notification
         /// </summary>
         /// <param name="id">id of chanel</param>
-        /// <param name="message"></param>
+        /// <param name="indexData"></param>
         /// <param name="customTimeSchedule"></param>
-        /// <param name="title"></param>
-        public void UpdateDeliveryTimeBy(string id, string title, string message, int customTimeSchedule = -1)
+        public void UpdateDeliveryTimeByIncremental(string id, int indexData, int customTimeSchedule = -1)
         {
             int index = -1;
 
@@ -291,7 +288,7 @@ namespace Lance.Common.LocalNotification
                 return;
             }
 
-            UpdateDeliveryTimeBy(index, title, message, customTimeSchedule);
+            UpdateDeliveryTimeByIncremental(index, indexData, customTimeSchedule);
         }
 
         private void OnEnable()
