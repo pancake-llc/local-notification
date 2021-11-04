@@ -2,8 +2,8 @@
   "name": "com.lance.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2021.11.04",
-  "unity": "2020.1",
+  "version": "2021.11.4",
+  "unity": "2019.1",
   "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/phongsoyenmoc)",
   "license": "MIT",
   "dependencies": {
