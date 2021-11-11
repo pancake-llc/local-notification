@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.gamee.common": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.145.18.122:4873"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.0",
       "depth": 0,

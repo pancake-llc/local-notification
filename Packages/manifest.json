@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.gamee.common": "1.0.1",
     "com.unity.2d.animation": "7.0.0",
     "com.unity.2d.pixel-perfect": "5.0.1",
     "com.unity.2d.psdimporter": "6.0.0",
@@ -47,5 +48,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Gamee",
+      "url": "http://34.145.18.122:4873",
+      "scopes": [
+        "com.gamee"
+      ]
+    }
+  ]
 }

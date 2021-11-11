@@ -25,21 +25,18 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
-  m_UserSelectedRegistryName: 
+  - m_Id: scoped:Gamee
+    m_Name: Gamee
+    m_Url: http://34.145.18.122:4873
+    m_Scopes:
+    - com.gamee
+    m_IsDefault: 0
+    m_Capabilities: 0
+  m_UserSelectedRegistryName: Gamee
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
-    m_ErrorMessage: 
-    m_Original:
-      m_Id: 
-      m_Name: 
-      m_Url: 
-      m_Scopes: []
-      m_IsDefault: 0
-      m_Capabilities: 0
     m_Modified: 0
-    m_Name: 
-    m_Url: 
-    m_Scopes:
-    - 
-    m_SelectedScopeIndex: 0
+    m_ErrorMessage: 
+    m_UserModificationsInstanceId: -828
+    m_OriginalInstanceId: -830
   m_LoadAssets: 0

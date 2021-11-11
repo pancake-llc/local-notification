@@ -1,16 +1,17 @@
 {
-  "name": "com.lance.local-notification",
+  "name": "com.gamee.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2021.11.4",
+  "version": "2021.11.11",
   "unity": "2019.1",
-  "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/phongsoyenmoc)",
+  "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/yenmoc)",
   "license": "MIT",
   "dependencies": {
-    "com.unity.mobile.notifications": "1.4.2"
+    "com.unity.mobile.notifications": "1.4.2",
+    "com.gamee.common": "1.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phongsoyenmoc/local-notification"
+    "url": "https://github.com/yenmoc/local-notification"
   }
 }
