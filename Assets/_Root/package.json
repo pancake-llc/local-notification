@@ -2,7 +2,7 @@
   "name": "com.gamee.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2021.11.11",
+  "version": "2021.11.11-node.1",
   "unity": "2019.1",
   "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/yenmoc)",
   "license": "MIT",
