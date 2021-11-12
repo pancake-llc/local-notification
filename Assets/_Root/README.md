@@ -39,6 +39,28 @@ Add the following dependencies in manifest
 ```
 
 
+### Install via Scoped Registry
+
+Go to Project Setting -> Package Manager -> Enter information of scope -> Save and wait to Unity loading scope infomation -> Go to PackageManager to see all package in scope
+
+```cs
+Name: Gamee
+URL: http://34.145.18.122:4873
+Scope: com.gamee
+```
+
+![image](https://user-images.githubusercontent.com/44673303/141401499-c5ad6608-dede-445e-b2fa-7d938ad9155b.png)
+
+
+
 ### Usages
 
-- add component `NotificationConsole` into object has dont destroy to reschedule each time go to background and cancel when back to forceground
+- Add component `NotificationConsole` into object has dont destroy to reschedule each time go to background and cancel when back to forceground
+
+- Type `Repeat` will fire notification after each number `Minute`
+
+![image](https://user-images.githubusercontent.com/44673303/141402003-88e7e3f7-bde2-4513-a7bf-d4fc4539ca02.png)
+
+
+- Event `OnUpdateDeliveryTime` to use when you want send notification one time with diffirent custom `Minute` each time such as fire notification in game idle when building house completed. In case you need write your custom method
+to assign to event by call to API `public void UpdateDeliveryTimeBy(string id, int customTimeSchedule = -1)`
