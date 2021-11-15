@@ -2,7 +2,7 @@
   "name": "com.gameestudio.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2021.11.12",
+  "version": "2021.11.15",
   "unity": "2019.1",
   "category": "gameestudio",
   "author": {
@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "com.unity.mobile.notifications": "1.4.2",
-    "com.gamee.common": "1.0.1"
+    "com.gamee.common": "1.0.0"
   },
   "repository": {
     "type": "git",
