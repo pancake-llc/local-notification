@@ -51,7 +51,12 @@ Scope(s): com.gameestudio
 
 ![image](https://user-images.githubusercontent.com/44673303/141713042-9b393a27-2803-42c8-ab41-190add208c67.png)
 
-
+Then add the flowing dependencies to `Packages/manifest.json`
+```
+...
+com.gameestudio.local-notification": "2021.11.15",
+...
+```
 
 ### Usages
 
