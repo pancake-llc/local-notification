@@ -44,12 +44,12 @@ Add the following dependencies in manifest
 Go to Project Setting -> Package Manager -> Enter information of scope -> Save and wait to Unity loading scope infomation -> Go to PackageManager to see all package in scope
 
 ```cs
-Name: Gamee
-URL: http://34.145.18.122:4873
-Scope: com.gamee
+Name: Gamee Studio
+URL: https://npm.pkg.github.com/@gameestudio
+Scope(s): com.gameestudio
 ```
 
-![image](https://user-images.githubusercontent.com/44673303/141401499-c5ad6608-dede-445e-b2fa-7d938ad9155b.png)
+![image](https://user-images.githubusercontent.com/44673303/141713042-9b393a27-2803-42c8-ab41-190add208c67.png)
 
 
 
