@@ -1,10 +1,15 @@
 {
-  "name": "com.gamee.local-notification",
+  "name": "com.gameestudio.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
   "version": "2021.11.12",
   "unity": "2019.1",
-  "author": "yenmoc <phongsoyenmoc.diep@gmail.com> (https://github.com/yenmoc)",
+  "category": "gameestudio",
+  "author": {
+    "name": "yenmoc",
+    "email": "phongsoyenmoc.diep@gmail.com",
+    "url": "https://github.com/yenmoc"
+  },
   "license": "MIT",
   "dependencies": {
     "com.unity.mobile.notifications": "1.4.2",
@@ -12,6 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yenmoc/local-notification"
+    "url": "git@github.com:gameestudio/local-notification.git",
+    "directory": "com.gameestudio.local-notification"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@gameestudio"
   }
 }
