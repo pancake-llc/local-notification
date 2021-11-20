@@ -1,26 +1,26 @@
 {
-  "name": "com.gameestudio.local-notification",
+  "name": "com.snorlax.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
   "version": "2021.11.15",
   "unity": "2019.1",
-  "category": "gameestudio",
+  "category": "snorlax",
   "author": {
-    "name": "yenmoc",
+    "name": "Snorlax",
     "email": "phongsoyenmoc.diep@gmail.com",
     "url": "https://github.com/yenmoc"
   },
   "license": "MIT",
   "dependencies": {
     "com.unity.mobile.notifications": "1.4.2",
-    "com.gamee.common": "1.0.0"
+    "com.snorlax.common": "1.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gameestudio/local-notification.git",
-    "directory": "com.gameestudio.local-notification"
+    "url": "git@github.com:snorluxe/local-notification.git",
+    "directory": "com.snorluxe.local-notification"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@gameestudio"
+    "registry": "https://npm.pkg.github.com/@snorluxe"
   }
 }
