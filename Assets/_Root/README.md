@@ -9,7 +9,7 @@ Requires a version of unity that supports path query parameter for git packages 
 You can add 
 
 ```cs
-https://github.com/yenmoc/local-notification.git?path=Assets/_Root
+https://github.com/snorluxe/local-notification.git?path=Assets/_Root
 ```
  to PackageManager
 
@@ -19,14 +19,14 @@ https://github.com/yenmoc/local-notification.git?path=Assets/_Root
 
 or add 
 ```cs
-"com.lance.local-notification": "https://github.com/yenmoc/local-notification.git?path=Assets/_Root"
+"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root"
 ```
 to `Packages/manifest.json`.
 
-If you want to set a target version. lance uses the `year.month.day` release tag so you can specify a version like `#2021.5.25`. For example 
+If you want to set a target version. lance uses the `year.month.day` release tag so you can specify a version like `#2022.2.17`. For example 
 
 ```cs
-https://github.com/yenmoc/local-notification.git?path=Assets/_Root#2021.5.25
+https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.2.17
 ```
 
 
@@ -35,28 +35,9 @@ https://github.com/yenmoc/local-notification.git?path=Assets/_Root#2021.5.25
 Add the following dependencies in manifest
 
 ```cs
-"com.lance.local-notification": "https://github.com/yenmoc/local-notification.git?path=Assets/_Root#2021.5.25",
+"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.2.17",
 ```
 
-
-### Install via Scoped Registry
-
-Go to Project Setting -> Package Manager -> Enter information of scope -> Save and wait to Unity loading scope infomation -> Go to PackageManager to see all package in scope
-
-```cs
-Name: Gamee Studio
-URL: https://npm.pkg.github.com/@gameestudio
-Scope(s): com.gameestudio
-```
-
-![image](https://user-images.githubusercontent.com/44673303/141713042-9b393a27-2803-42c8-ab41-190add208c67.png)
-
-Then add the flowing dependencies to `Packages/manifest.json`
-```
-...
-com.gameestudio.local-notification": "2021.11.15",
-...
-```
 
 ### Usages
 

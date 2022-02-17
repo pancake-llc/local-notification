@@ -12,8 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "com.unity.mobile.notifications": "1.4.2",
-    "com.snorlax.common": "1.0.0"
+    "com.unity.mobile.notifications": "1.4.2"
   },
   "repository": {
     "type": "git",
