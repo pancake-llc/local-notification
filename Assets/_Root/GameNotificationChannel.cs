@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Cross-platform wrapper to represent channels for notifications.

@@ -2,7 +2,7 @@
 using System;
 using Unity.Notifications.iOS;
 
-namespace Lance.Common.LocalNotification.iOS
+namespace Pancake.Notification
 {
     /// <summary>
     /// iOS implementation of <see cref="IGameNotificationsPlatform"/>.

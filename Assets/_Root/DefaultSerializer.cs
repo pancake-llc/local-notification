@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Standard serializer used by the <see cref="GameNotificationsManager"/> if no others

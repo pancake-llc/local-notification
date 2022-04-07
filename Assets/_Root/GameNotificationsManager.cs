@@ -4,13 +4,10 @@ using System.IO;
 using System.Linq;
 #if UNITY_ANDROID
 using Unity.Notifications.Android;
-using Lance.Common.LocalNotification.Android;
-#elif UNITY_IOS
-using Lance.Common.LocalNotification.iOS;
 #endif
 using UnityEngine;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Global notifications manager that serves as a wrapper for multiple platforms' notification systems.

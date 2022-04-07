@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Responsible for the serialization and deserialization of pending notifications for a

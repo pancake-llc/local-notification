@@ -2,7 +2,7 @@
 using System;
 using Unity.Notifications.Android;
 
-namespace Lance.Common.LocalNotification.Android
+namespace Pancake.Notification
 {
     /// <summary>
     /// Android implementation of <see cref="IGameNotificationsPlatform"/>.

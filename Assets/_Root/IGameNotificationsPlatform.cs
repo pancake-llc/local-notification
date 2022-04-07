@@ -1,6 +1,6 @@
 using System;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Any type that handles notifications for a specific game platform

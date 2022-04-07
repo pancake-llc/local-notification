@@ -4,7 +4,7 @@ using Unity.Notifications.iOS;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Lance.Common.LocalNotification.iOS
+namespace Pancake.Notification
 {
     /// <summary>
     /// iOS implementation of <see cref="IGameNotification"/>.

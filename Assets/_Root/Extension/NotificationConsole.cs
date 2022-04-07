@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-#if UNITY_ANDROID
-using Lance.Common.LocalNotification.Android;
-#endif
 #if UNITY_IOS
-using Lance.Common.LocalNotification.iOS;
 using Unity.Notifications.iOS;
 #endif
 using UnityEngine;
 using UnityEngine.Events;
 using MEC;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     public enum TypeNoti
     {

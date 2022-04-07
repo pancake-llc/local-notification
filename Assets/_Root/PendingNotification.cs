@@ -1,6 +1,6 @@
 using System;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Represents a notification that was scheduled with <see cref="GameNotificationsManager.ScheduleNotification"/>.

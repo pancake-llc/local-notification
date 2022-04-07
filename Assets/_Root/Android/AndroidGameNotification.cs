@@ -3,7 +3,7 @@ using System;
 using Unity.Notifications.Android;
 using UnityEngine.Assertions;
 
-namespace Lance.Common.LocalNotification.Android
+namespace Pancake.Notification
 {
     /// <summary>
     /// Android specific implementation of <see cref="IGameNotification"/>.

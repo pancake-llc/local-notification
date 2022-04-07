@@ -1,7 +1,7 @@
 #if UNITY_ANDROID
 using UnityEngine;
 
-namespace Lance.Common.LocalNotification.Android
+namespace Pancake.Notification
 {
     /// <summary>
     /// Class for managing Android notification center extensions.

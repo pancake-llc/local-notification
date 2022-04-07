@@ -1,6 +1,6 @@
 using System;
 
-namespace Lance.Common.LocalNotification
+namespace Pancake.Notification
 {
     /// <summary>
     /// Represents a notification that will be delivered for this application.
