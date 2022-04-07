@@ -2,24 +2,24 @@
   "name": "com.snorlax.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2021.11.15",
+  "version": "2022.04.25.preview",
   "unity": "2019.1",
   "category": "snorlax",
   "author": {
-    "name": "Snorlax",
+    "name": "yenmoc",
     "email": "phongsoyenmoc.diep@gmail.com",
     "url": "https://github.com/yenmoc"
   },
   "license": "MIT",
   "dependencies": {
-    "com.unity.mobile.notifications": "1.4.2"
+    "com.unity.mobile.notifications": "2.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:snorluxe/local-notification.git",
-    "directory": "com.snorluxe.local-notification"
+    "url": "git@github.com:pancake-llc/local-notification.git",
+    "directory": "com.pancake-llc.local-notification"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@snorluxe"
+    "registry": "https://npm.pkg.github.com/@pancake-llc"
   }
 }
