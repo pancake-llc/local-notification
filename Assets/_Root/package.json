@@ -3,7 +3,7 @@
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
   "version": "2022.04.25.preview",
-  "unity": "2019.1",
+  "unity": "2021+",
   "category": "snorlax",
   "author": {
     "name": "yenmoc",
@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "com.unity.mobile.notifications": "2.0.0"
+    "com.unity.mobile.notifications": "2.0.1"
   },
   "repository": {
     "type": "git",

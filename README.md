@@ -26,3 +26,6 @@ Add the following dependencies in manifest
 
 - Event `OnUpdateDeliveryTime` to use when you want send notification one time with diffirent custom `Minute` each time such as fire notification in game idle when building house completed. In case you need write your custom method
 to assign to event by call to API `public void UpdateDeliveryTimeBy(string id, int customTimeSchedule = -1)`
+
+*Note :
+- Version 2.+ require minimum android api support is 5.+ 
