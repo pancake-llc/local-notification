@@ -2,8 +2,8 @@
   "name": "com.snorlax.local-notification",
   "displayName": "Notification",
   "description": "Notification implement Unity Notification",
-  "version": "2022.04.25.preview",
-  "unity": "2021+",
+  "version": "2022.5.13",
+  "unity": "2020.1",
   "category": "snorlax",
   "author": {
     "name": "yenmoc",

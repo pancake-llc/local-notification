@@ -26,7 +26,7 @@ to `Packages/manifest.json`.
 If you want to set a target version. lance uses the `year.month.day` release tag so you can specify a version like `#2022.2.17`. For example 
 
 ```cs
-https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.2.17
+https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.5.13
 ```
 
 
@@ -35,7 +35,7 @@ https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.2.17
 Add the following dependencies in manifest
 
 ```cs
-"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.2.17",
+"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.5.13",
 ```
 
 
