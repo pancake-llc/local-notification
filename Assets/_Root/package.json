@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "com.unity.mobile.notifications": "2.0.1"
+    "com.unity.mobile.notifications": "1.4.2"
   },
   "repository": {
     "type": "git",
