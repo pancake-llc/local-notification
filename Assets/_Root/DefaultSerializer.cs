@@ -11,7 +11,7 @@ namespace Pancake.Notification
     /// </summary>
     public class DefaultSerializer : IPendingNotificationsSerializer
     {
-        private const byte Version = 0;
+        private const byte Version = 1;
 
         private readonly string filename;
 
@@ -103,7 +103,7 @@ namespace Pancake.Notification
                     using (var reader = new BinaryReader(file))
                     {
                         // Version
-                        reader.ReadByte();
+                        var version = reader.ReadByte();
 
                         // Length
                         int numElements = reader.ReadInt32();
@@ -133,6 +133,9 @@ namespace Pancake.Notification
                             // Group
                             notification.Group = reader.ReadString();
 
+                            // Data, introduced in version 1
+                            if (version > 0) notification.Data = reader.ReadString();
+                            
                             // Badge
                             hasValue = reader.ReadBoolean();
                             if (hasValue)
