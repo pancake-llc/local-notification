@@ -9,7 +9,7 @@ UPM Package
 Add the following dependencies in manifest
 
 ```cs
-"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.5.13",
+"com.snorlax.local-notification": "https://github.com/snorluxe/local-notification.git?path=Assets/_Root#2022.7.15",
 "com.pancake.common": "https://github.com/pancake-llc/common.git?path=Assets/_Root#1.1.7",
 
 ```
